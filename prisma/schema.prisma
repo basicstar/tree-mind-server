@@ -1,0 +1,18 @@
+// Prisma schema for usermarkdown table
+// Please configure your database connection in .env after this file is created
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model usermarkdown {
+  id         Int     @id @default(autoincrement())
+  userid     String
+  markdown   String  @db.Text
+  crticalID  String  @unique @db.VarChar(10)
+}
