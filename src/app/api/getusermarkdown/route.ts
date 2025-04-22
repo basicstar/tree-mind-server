@@ -6,6 +6,7 @@ const prisma = new PrismaClient();
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    console.log(body);
     const { quary } = body.data || {}; // 按照你的需求字段名为 quary
     if (!quary) {
       return NextResponse.json({ error: 'Missing quary' }, { status: 400 });
