@@ -41,7 +41,9 @@ export async function POST(req: NextRequest) {
     await prisma.usermarkdown.create({
       data: { userid, markdown, crticalID },
     });
-    const linkId = `http://www.apexcode.top/index.html?linkId=${crticalID}`;
+    // 获取完整URL
+    const origin = new URL(req.url).origin;  
+    const linkId = `${origin}/index.html?linkId=${crticalID}`;
     return NextResponse.json({ linkId }, { status: 201 });
   } catch (error) {
     if (error instanceof Error) {
