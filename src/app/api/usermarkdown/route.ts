@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     await prisma.usermarkdown.create({
       data: { userid, markdown, crticalID },
     });
-    const linkId = `www.codeapex.top/?linkId=${crticalID}`;
+    const linkId = `http://www.apexcode.top/index.html?linkId=${crticalID}`;
     return NextResponse.json({ linkId }, { status: 201 });
   } catch (error) {
     if (error instanceof Error) {
