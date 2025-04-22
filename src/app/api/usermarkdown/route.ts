@@ -21,9 +21,8 @@ export async function POST(req: NextRequest) {
 
   try {
     const body = await req.json();
-    const data = body.data || {};
-    const userid = data.userid || '';
-    const markdown = data.markdown || '';
+    const userid = body.userid || '';
+    const markdown = body.markdown || '';
     if (typeof userid !== "string" || userid.trim() === "" ||
         typeof markdown !== "string" || markdown.trim() === "") {
       return NextResponse.json({ error: 'Missing userid or markdown' }, { status: 400 });
