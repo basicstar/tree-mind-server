@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     }
     const record = await prisma.usermarkdown.findUnique({ where: { crticalID: quary } });
     if (!record) {
-      return NextResponse.json({ error: 'Not found' }, { status: 404 });
+      return NextResponse.json({ error: 'Not found' }, { status: 200 });
     }
     return NextResponse.json({ userid: record.userid, markdown: record.markdown, crticalID: record.crticalID }, { status: 200 });
   } catch (error) {
