@@ -42,8 +42,8 @@ export async function POST(req: NextRequest) {
       data: { userid, markdown, crticalID },
     });
     // 获取完整URL
-    const origin = new URL(req.url).origin;  
-    const linkId = `${origin}/index.html?linkId=${crticalID}`;
+    // const origin = new URL(req.url).origin;  
+    const linkId = `www.apexcode.top/index.html?linkId=${crticalID}`;
     return NextResponse.json({ linkId }, { status: 201 });
   } catch (error) {
     if (error instanceof Error) {
